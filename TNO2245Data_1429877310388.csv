@@ -1,4 +1,4 @@
-TimeStap,Total particles (ug/m^3),PM10 particles (ug/m^3),PM2.5 particles (ug/m^3),PM1 particles (ug/m^3),Temperature (Celsius),Humidity (% RH),Wind Speed (mtr/sec),Wind Direction (degrees),GPS Coordinates
+TimeStamp,Total particles (ug/m^3),PM10 particles (ug/m^3),PM2.5 particles (ug/m^3),PM1 particles (ug/m^3),Temperature (Celsius),Humidity (% RH),Wind Speed (mtr/sec),Wind Direction (degrees),GPS Coordinates
 24/07/2014 00:00:00,19.1,12.2,3.4,0.88,0,0,0,310,"50.38639,-4.8804"
 24/07/2014 00:15:00,17.9,10.5,2.86,0.84,0,0,0,310,"50.38639,-4.8804"
 24/07/2014 00:30:00,14.8,9.8,2.58,0.8,0,0,0,310,"50.38639,-4.8804"
