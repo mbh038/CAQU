@@ -1,2 +1,2 @@
 # CAQU
-CAQU data and analysis
+CAQU data analysis
