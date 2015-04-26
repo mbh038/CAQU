@@ -1,9 +1,8 @@
 
 plotDiurnalMeans<-function(id,directory){
-        d<-read.csv( paste(directory,"/",id,".csv",sep="") )
-
+        
         #Read in data, rename columns and delete empty columns
-        #d<-read.csv("./CAQU-data/TNO2245Data_1429877310388.csv")
+        d<-read.csv( paste(directory,"/",id,".csv",sep="") )
         colnames(d)<-c("TimeStamp","TP","PM10","PM2.5","PM1","T","H","WS","WD","GPS")
         d<-subset(d,select=-c(T,H,GPS))
         
