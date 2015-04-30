@@ -4,12 +4,12 @@
 CAQU_setup<-function(){
   
   #install packages required
-  install.packages("ggplot")
+  install.packages("ggplot2")
   install.packages("dplyr")
   install.packages("reshape2")
   
   #load them
-  library("ggplot")
+  library("ggplot2")
   library("dplyr")
   library("reshape2")
   
@@ -19,6 +19,10 @@ CAQU_setup<-function(){
 
 # Plot diurnal means of TP, PM10, PM2.5, PM1 on same axes
 
+#TNO2245Data_1429877310388
+
+
+plotDiurnalMeans
 plotDiurnalMeans<-function(id,directory){
   
   #Read in data, rename columns and delete empty columns
@@ -27,7 +31,9 @@ plotDiurnalMeans<-function(id,directory){
   d<-subset(d,select=-c(T,H,GPS))
   
   #retain only values where all PM data are valid
-  dg<-subset(d,PM10 > 0 & PM2.5 > 0 & PM1 > 0 & PM10>=PM2.5 & PM2.5>=PM1)
+  dg<-subset(d,PM10 > 0 & PM2.5 > 0 & PM1 > 0 & PM10>=PM2.5 & PM2.5>=PM1 & TP<100)
+  
+
   
   #create vectors of dates, days, months and times of day at which measurements are taken
   #Convert TimeStamp to POSIXlt format
@@ -55,12 +61,13 @@ plotDiurnalMeans<-function(id,directory){
   
   
   ggplot(melt(s5,id.vars="Time"),aes(x=Time,y=value,col=variable))+
-    scale_x_continuous(limits=c(0,24),breaks=c(0,4,8,12,16,20,24))+geom_line()+
+    scale_x_continuous(limits=c(0,24),breaks=c(0,4,8,12,16,20,24))+
+    geom_line()+
     scale_y_continuous(limits = c(0, NA))+
-    facet_wrap(~variable,scales="free_y")+
+    #facet_wrap(~variable,scales="free_y")+
     ylab( bquote(mu~g~m^{-3}))+
     ggtitle("CAQU data")
   
-  #str(s6)
+  #summary(dg)
   
 }
